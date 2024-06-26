@@ -53,12 +53,13 @@ def main():
     ]
 
     # Create and generate a word cloud image:
-    wordcloud = WordCloud().generate(", ".join(competencies))
+    wordcloud = WordCloud(width=1600, height=800).generate(", ".join(competencies))
 
     # Display the generated image:
+    plt.figure( figsize=(20,10), facecolor='k')
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
-    plt.tight_layout()
+    plt.tight_layout(pad=0)
     plt.imshow(wordcloud)
     st.pyplot(plt.gcf())
     st.write(", ".join(competencies))
