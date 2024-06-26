@@ -8,8 +8,6 @@ import matplotlib.pyplot as plt
 def main():
     st.set_page_config(page_title="Sebastian Müller - Strategic Technology Leader", layout="wide")
 
-
-
     # Contact Information
     col1, col2 = st.columns(2)
     with col1:
@@ -29,7 +27,7 @@ def main():
         img_url = "https://avatars.githubusercontent.com/u/793558?v=4"
         response = requests.get(img_url)
         img = Image.open(BytesIO(response.content))
-        st.image(img, use_column_width=True)
+        st.image(img, use_column_width=True, caption="Sebastian Müller")
     
     # Summary
     st.header("Professional Summary")
@@ -41,6 +39,8 @@ def main():
     enablement. Skilled in stakeholder management, product development, and
     architectural design for secure, scalable, cloud-native platforms.
     """)
+
+    st.divider()
 
     # Core Competencies
     st.header("Core Competencies")
@@ -64,6 +64,8 @@ def main():
     st.pyplot(plt.gcf())
     st.write(", ".join(competencies))
 
+    st.divider()
+
     # Values
     st.header("Values")
     col1, col2, col3 = st.columns(3)
@@ -77,9 +79,11 @@ def main():
         st.subheader("Customer focus")
         st.write("Understanding the customer pain is the key to create value.")
 
+    st.divider()
+
     # Skills
     st.header("Skills")
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.subheader("Leadership Skills")
         leadership_skills = [
@@ -105,16 +109,21 @@ def main():
         for skill in technical_skills:
             st.write(f"- {skill}")
 
-    st.subheader("Soft Skills")
-    soft_skills = [
-        "Effective Communication",
-        "Customer Focus",
-        "Problem Solving",
-        "Innovation and Creativity",
-        "Sales and Negotiation",
-        "Due Diligence Analysis, GAP Analysis and Issue Resolving Strategy"
-    ]
-    st.write(", ".join(soft_skills))
+    with col3:
+        st.subheader("Soft Skills")
+        soft_skills = [
+            "Effective Communication",
+            "Customer Focus",
+            "Problem Solving",
+            "Innovation and Creativity",
+            "Sales and Negotiation",
+            "Due Diligence Analysis, GAP Analysis and Issue Resolving Strategy"
+        ]
+        for skill in soft_skills:
+            st.write(f"- {skill}")
+
+
+    st.divider()
 
     # Professional Experience
     st.header("Professional Experience")
@@ -154,6 +163,8 @@ def main():
     for achievement in intelliad_achievements:
         st.write(f"- {achievement}")
 
+    st.divider()
+
     # Education & Credentials
     st.header("Education & Credentials")
     credentials = [
@@ -165,6 +176,9 @@ def main():
     ]
     for credential in credentials:
         st.write(f"- {credential}")
+
+
+    st.toast("Get in touch with me now: s@mlr.digital", icon="👋")
 
 if __name__ == "__main__":
     main()
